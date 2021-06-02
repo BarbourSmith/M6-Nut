@@ -8,15 +8,118 @@
     "topLevel": true,
     "allAtoms": [
         {
+            "atomType": "RegularPolygon",
+            "name": "RegularPolygon",
+            "x": 0.11161939615736506,
+            "y": 0.4732824427480916,
+            "uniqueID": 617578,
+            "ioValues": [
+                {
+                    "name": "number of sides",
+                    "ioValue": 6
+                },
+                {
+                    "name": "diameter",
+                    "ioValue": 11.5
+                }
+            ]
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.3183897529734675,
+            "y": 0.5152671755725191,
+            "uniqueID": 211265,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "atoms/496646/617578RegularPolygon"
+                },
+                {
+                    "name": "height",
+                    "ioValue": 5
+                }
+            ]
+        },
+        {
+            "atomType": "Color",
+            "name": "Color",
+            "x": 0.4666056724611162,
+            "y": 0.5038167938931297,
+            "uniqueID": 541565,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "atoms/496646/211265Extrude"
+                }
+            ],
+            "selectedColorIndex": "10"
+        },
+        {
+            "atomType": "Add-BOM-Tag",
+            "name": "Add BOM Tag",
+            "x": 0.6376944190301922,
+            "y": 0.4732824427480916,
+            "uniqueID": 867491,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "atoms/496646/541565Color"
+                }
+            ],
+            "BOMitem": {
+                "BOMitemName": "M6 Nut",
+                "numberNeeded": 1,
+                "costUSD": 0.0271,
+                "source": "https://www.mcmaster.com/90592A016/",
+                "totalNeeded": 1,
+                "radius": 0.015384615384615385
+            }
+        },
+        {
             "atomType": "Output",
             "name": "Output",
             "x": 0.9817017383348581,
             "y": 0.5,
             "uniqueID": 401736,
-            "ioValues": []
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": "atoms/496646/867491Add-BOM-Tag"
+                }
+            ]
         }
     ],
-    "allConnectors": [],
+    "allConnectors": [
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 617578,
+            "ap2ID": 211265
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 211265,
+            "ap2ID": 541565
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 541565,
+            "ap2ID": 867491
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 867491,
+            "ap2ID": 401736
+        }
+    ],
     "fileTypeVersion": 1,
     "simplify": false,
     "filetypeVersion": 1,
